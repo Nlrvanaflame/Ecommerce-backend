@@ -12,6 +12,4 @@ export class SupplierService {
   static async deleteSupplier(id: string) {
     return Supplier.destroy({ where: { id } });
   }
-
-  
 }

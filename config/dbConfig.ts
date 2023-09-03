@@ -8,7 +8,8 @@ const sequelize = new Sequelize({
   username: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASS || 'sword666',
   database: process.env.DB_NAME || 'ecommerce',
-  models: [path.join(__dirname, '../api/**/*model.ts')],
+  models: [path.join(__dirname, '../src/api/**/*model.ts')],
+
 });
 
 export default sequelize;
