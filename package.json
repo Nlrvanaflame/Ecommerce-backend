@@ -19,7 +19,6 @@
   },
   "name": "bashboard-back-end",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.ts",
   "keywords": [],
   "author": "",

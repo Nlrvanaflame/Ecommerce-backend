@@ -11,7 +11,14 @@ export class Inventory extends Model {
   id: string;
 
   @ForeignKey(() => Product)
-  @Column(DataType.UUID)
+  @Column({
+    type: DataType.UUID,
+    references: {
+      model: Product, // or 'Products' based on how your table is named
+      key: 'id'
+    },
+    onDelete: 'CASCADE',
+  })
   product_id: string;
 
   @BelongsTo(() => Product)

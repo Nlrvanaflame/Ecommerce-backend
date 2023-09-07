@@ -1,4 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
+import Product from '../src/api/products/products.model';
+import Supplier from '../src/api/suppliers/suppliers.model';
+import Inventory from '../src/api/inventory/inventory.model';
 import path from 'path';
 
 const sequelize = new Sequelize({
@@ -8,7 +11,7 @@ const sequelize = new Sequelize({
   username: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASS || 'sword666',
   database: process.env.DB_NAME || 'ecommerce',
-  models: [path.join(__dirname, '../src/api/**/*model.ts')],
+  models: [Product, Supplier, Inventory],
 
 });
 
