@@ -14,7 +14,7 @@ export class Inventory extends Model {
   @Column({
     type: DataType.UUID,
     references: {
-      model: Product, // or 'Products' based on how your table is named
+      model: Product, 
       key: 'id'
     },
     onDelete: 'CASCADE',

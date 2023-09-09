@@ -23,7 +23,7 @@ export class Product extends Model {
   @Column(DataType.UUID)
   supplier_id: string;
 
-  @BelongsTo(() => Supplier)
+  @BelongsTo(() => Supplier, { onDelete: 'CASCADE' })
   supplier: Supplier;
 
   @CreatedAt

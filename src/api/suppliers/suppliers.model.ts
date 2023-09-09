@@ -26,8 +26,9 @@ import {
     @Column(DataType.STRING)
     location: string;
   
-    @HasMany(() => Product)
-    products: Product[];
+    @HasMany(() => Product, { onDelete: 'CASCADE' })
+     products: Product[];
+
   }
   
   export default Supplier
