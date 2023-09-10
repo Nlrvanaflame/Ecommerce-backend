@@ -2,9 +2,10 @@ import { Inventory } from './inventory.model';
 
 export class InventoryService {
   
-  static async getInventoryById(id: string) {
-    return Inventory.findByPk(id);
+  static async getInventoryByProductId(productId: string) {
+    return Inventory.findOne({ where: { product_id: productId } });
   }
+
 
   static async createInventory(data: any) {
     return Inventory.create(data);

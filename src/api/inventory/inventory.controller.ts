@@ -6,12 +6,17 @@ export class InventoryController {
   static async getById(req: express.Request, res: express.Response) {
     try {
       const { id } = req.params;
-      const inventory = await InventoryService.getInventoryById(id);
-      res.json(inventory);
+      const inventory = await InventoryService.getInventoryByProductId(id);
+      if (inventory) {
+        res.json(inventory);
+      } else {
+        res.status(404).json({ message: 'No inventory found for the given product ID' });
+      }
     } catch (error: any) {
-      res.status(404).json({ message: 'An error occurred while fetching the inventory', error: error.message });
+      res.status(500).json({ message: 'An error occurred while fetching the inventory', error: error.message });
     }
   }
+
 
   static async create(req: express.Request, res: express.Response) {
     try {
