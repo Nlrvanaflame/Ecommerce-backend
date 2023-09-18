@@ -12,4 +12,8 @@ export class SupplierService {
   static async deleteSupplier(id: string) {
     return Supplier.destroy({ where: { id } });
   }
+
+  static async updateSupplier(id: string, data: any) {
+    return Supplier.update(data, { where: { id } });
+  }
 }

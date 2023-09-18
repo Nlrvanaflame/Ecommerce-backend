@@ -1,4 +1,5 @@
 import express from 'express';
+import { Request, Response } from 'express';
 import { SupplierService } from './suppliers.service';
 
 export class SupplierController {
@@ -27,6 +28,16 @@ export class SupplierController {
       res.json({ message: 'Supplier deleted successfully' });
     } catch (error) {
       res.status(404).json({ message: 'An error occurred while deleting the supplier', error: (error as Error).message });
+    }
+  }
+
+  static async updateSupplier (req: Request, res:Response){
+    try {
+      const { id } = req.params;
+      await SupplierService.updateSupplier(id, req.body);
+      res.json({ message: 'Supplier updated successfully' });
+    } catch (error: any) {
+      res.status(400).json({ message: 'An error occurred while updating the supplier', error: error.message });
     }
   }
 }
